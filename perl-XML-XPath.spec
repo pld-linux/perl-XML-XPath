@@ -16,7 +16,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 This module aims to comply exactly to the XPath specification at
 http://www.w3.org/TR/xpath and yet allow extensions to be added
 in the form of functions. Modules such as XSLT and XPointer may
@@ -33,7 +33,7 @@ potrzebne do tego, jako ¿e obs³uguj± funkcjonalno¶æ spoza XPath.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make}
 
 %install

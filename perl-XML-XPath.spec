@@ -2,6 +2,7 @@
 %define         pdir XML
 %define         pnam XPath
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
+Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPath
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.12
 Release:	1
@@ -26,6 +27,12 @@ This module aims to comply exactly to the XPath specification at
 http://www.w3.org/TR/xpath and yet allow extensions to be added
 in the form of functions. Modules such as XSLT and XPointer may
 need to do this as they support functionality beyond XPath.
+
+%description -l pl
+Ten modu³ ma byæ zgodny ze specyfikacj± XPath (dostêpn± pod
+http://www.w3.org/TR/xpath) i pozwala na dodawanie rozszerzeñ
+w postaci funkcji. Modu³y takie jak XSLT i XPointer mog± byæ
+potrzebne do tego, jako ¿e obs³uguj± funkcjonalno¶æ spoza XPath.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}

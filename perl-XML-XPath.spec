@@ -5,13 +5,13 @@ Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statemen
 Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPath
 Name:		perl-XML-XPath
 Version:	1.13
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	perl >= 5.6.1
 BuildRequires:	perl-XML-Parser >= 2.23
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,7 +31,8 @@ potrzebne do tego, jako ¿e obs³uguj± funkcjonalno¶æ spoza XPath.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make}
 
 %install
@@ -49,8 +50,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc TODO README
 %attr(755,root,root) %{_bindir}/*
-%{perl_sitelib}/XML/XPath.pm
-%{perl_sitelib}/XML/XPath
+%{perl_vendorlib}/XML/XPath.pm
+%{perl_vendorlib}/XML/XPath
 %{_mandir}/man3/*
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/xpath

@@ -1,11 +1,11 @@
 %include	/usr/lib/rpm/macros.perl
-%define         pdir XML
-%define         pnam XPath
+%define         pdir	XML
+%define         pnam	XPath
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
 Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPath
-Name:		perl-%{pdir}-%{pnam}
+Name:		perl-XML-XPath
 Version:	1.12
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -49,7 +49,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc TODO README
 %attr(755,root,root) %{_bindir}/*
-%{perl_sitelib}/%{pdir}/%{pnam}.pm
-%{perl_sitelib}/%{pdir}/%{pnam}
+%{perl_sitelib}/XML/XPath.pm
+%{perl_sitelib}/XML/XPath
 %{_mandir}/man3/*
-%{_examplesdir}/%{name}-%{version}
+%dir %{_examplesdir}/%{name}-%{version}
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/xpath
+%{_examplesdir}/%{name}-%{version}/*.xml

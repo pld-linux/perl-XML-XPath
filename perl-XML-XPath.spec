@@ -1,7 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 %define         pdir XML
 %define         pnam XPath
-
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.12
@@ -43,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 gzip -9nf TODO README 
 
 %clean
-# rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)

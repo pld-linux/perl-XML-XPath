@@ -31,7 +31,7 @@ potrzebne do tego, jako ¿e obs³uguj± funkcjonalno¶æ spoza XPath.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make}
 
 %install

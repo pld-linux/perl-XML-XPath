@@ -5,7 +5,7 @@ Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statemen
 Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPath
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.12
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz

@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests	# do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define         pdir	XML
 %define         pnam	XPath
@@ -5,13 +9,13 @@ Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statemen
 Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPath
 Name:		perl-XML-XPath
 Version:	1.13
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b5919d9220d83982feb6e2321850c5d7
-BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl-XML-Parser >= 2.23
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,11 +40,14 @@ potrzebne do tego, jako ¿e obs³uguj± funkcjonalno¶æ spoza XPath.
 	INSTALLDIRS=vendor
 %{__make}
 
+%{?with_tests:%{__make} test}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -52,7 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc TODO README
 %attr(755,root,root) %{_bindir}/*
 %{perl_vendorlib}/XML/XPath.pm
-%{perl_vendorlib}/XML/XPath
+%{perl_vendorlib}/XML/XPath/*.pm
+%{perl_vendorlib}/XML/XPath/Node
 %{_mandir}/man3/*
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/xpath

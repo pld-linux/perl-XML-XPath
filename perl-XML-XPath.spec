@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define         pdir	XML
-%define         pnam	XPath
+%define	pdir	XML
+%define	pnam	XPath
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
 Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPath
 Name:		perl-XML-XPath

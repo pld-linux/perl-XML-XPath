@@ -10,7 +10,7 @@ Summary(pl):	XML::XPath - zestaw modu³ów do parsowania i obliczania wyra¿eñ XPat
 Name:		perl-XML-XPath
 Version:	1.13
 Release:	3
-License:	GPL
+License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b5919d9220d83982feb6e2321850c5d7
@@ -48,7 +48,6 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean

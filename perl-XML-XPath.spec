@@ -6,7 +6,7 @@
 %define		pdir	XML
 %define		pnam	XPath
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
-Summary(pl.UTF-8):   XML::XPath - zestaw modułów do parsowania i obliczania wyrażeń XPath
+Summary(pl.UTF-8):	XML::XPath - zestaw modułów do parsowania i obliczania wyrażeń XPath
 Name:		perl-XML-XPath
 Version:	1.13
 Release:	3

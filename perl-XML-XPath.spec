@@ -6,14 +6,15 @@
 %define		pdir	XML
 %define		pnam	XPath
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
-Summary(pl.UTF-8):	XML::XPath - zestaw modułów do parsowania i obliczania wyrażeń XPath
+Summary(pl.UTF-8):	XML::XPath - zestaw modułów do analizy i obliczania wyrażeń XPath
 Name:		perl-XML-XPath
 Version:	1.13
 Release:	4
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b5919d9220d83982feb6e2321850c5d7
+URL:		http://search.cpan.org/dist/XML-XPath/
 BuildRequires:	perl-XML-Parser >= 2.23
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -29,8 +30,8 @@ need to do this as they support functionality beyond XPath.
 %description -l pl.UTF-8
 Ten moduł ma być zgodny ze specyfikacją XPath (dostępną pod
 http://www.w3.org/TR/xpath) i pozwala na dodawanie rozszerzeń
-w postaci funkcji. Moduły takie jak XSLT i XPointer mogą być
-potrzebne do tego, jako że obsługują funkcjonalność spoza XPath.
+w postaci funkcji. Do tego mogą być potrzebne moduły takie jak XSLT i
+XPointer, jako że obsługują funkcjonalność spoza XPath.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -48,7 +49,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install examples/test.xml $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,11 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc TODO README
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/xpath
 %{perl_vendorlib}/XML/XPath.pm
 %{perl_vendorlib}/XML/XPath/*.pm
 %{perl_vendorlib}/XML/XPath/Node
-%{_mandir}/man3/*
-%dir %{_examplesdir}/%{name}-%{version}
-%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/xpath
-%{_examplesdir}/%{name}-%{version}/*.xml
+%{_mandir}/man3/XML::XPath*.3pm*
+%{_examplesdir}/%{name}-%{version}

@@ -8,16 +8,17 @@
 Summary:	XML::XPath - a set of modules for parsing and evaluating XPath statements
 Summary(pl.UTF-8):	XML::XPath - zestaw modułów do analizy i obliczania wyrażeń XPath
 Name:		perl-XML-XPath
-Version:	1.13
-Release:	4
-License:	GPL or Artistic
+Version:	1.20
+Release:	1
+License:	Artistic v2.0
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b5919d9220d83982feb6e2321850c5d7
+# Source0-md5:	0efb48857967094e6499de120e36b819
 URL:		http://search.cpan.org/dist/XML-XPath/
 BuildRequires:	perl-XML-Parser >= 2.23
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+Requires:	perl-XML-Parser >= 2.23
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,6 +50,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
 install examples/test.xml $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
@@ -56,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc TODO README
+%doc Changes README TODO
 %attr(755,root,root) %{_bindir}/xpath
 %{perl_vendorlib}/XML/XPath.pm
 %{perl_vendorlib}/XML/XPath/*.pm
